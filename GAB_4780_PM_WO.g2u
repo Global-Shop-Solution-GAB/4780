@@ -1,0 +1,1918 @@
+Program.Sub.ScreenSU.Start
+Gui.frmProj..Create
+Gui.frmProj..Size(15210,10065)
+Gui.frmProj..MinX(15210)
+Gui.frmProj..MinY(10065)
+Gui.frmProj..Position(0,0)
+Gui.frmProj..BackColor(-2147483633)
+Gui.frmProj..MousePointer(0)
+Gui.frmProj..Event(UnLoad,frmProj_UnLoad)
+Gui.frmProj..Caption("Project Job Cost Dashboard")
+Gui.frmProj.picGSSLogo.Create(PictureBox)
+Gui.frmProj.picGSSLogo.Size(4125,960)
+Gui.frmProj.picGSSLogo.Position(5520,45)
+Gui.frmProj.picGSSLogo.Event(DblClick,picGSSLogo_DblClick)
+Gui.frmProj.picGSSLogo.ToolTip("Double-Click for additional functions")
+Gui.frmProj.GsGCProj.Create(GsGridControl)
+Gui.frmProj.GsGCProj.Size(15000,8520)
+Gui.frmProj.GsGCProj.Position(30,1185)
+Gui.frmProj.GsGCProj.Event(RowCellClick,GsGCProj_RowCellClick)
+Gui.frmProj.frameLegend.Create(Frame)
+Gui.frmProj.frameLegend.Size(1605,1155)
+Gui.frmProj.frameLegend.Position(13425,-30)
+Gui.frmProj.txtOrig.Create(TextBox,"Original Estimates",True,1440,300,0,60,150,True,2,"Arial",8,13882323,1)
+Gui.frmProj.txtOrig.Parent("frameLegend")
+Gui.frmProj.txtOrig.Locked(True)
+Gui.frmProj.txtCurr.Create(TextBox,"Current Budget",True,1440,300,0,60,465,True,2,"Arial",8,8894686,1)
+Gui.frmProj.txtCurr.Parent("frameLegend")
+Gui.frmProj.txtCurr.Locked(True)
+Gui.frmProj.txtAct.Create(TextBox,"Actuals",True,1440,300,0,60,780,True,2,"Arial",8,15128749,1)
+Gui.frmProj.txtAct.Parent("frameLegend")
+Gui.frmProj.txtAct.Locked(True)
+Gui.frmProj.frameFilters.Create(Frame)
+Gui.frmProj.frameFilters.Size(1530,1185)
+Gui.frmProj.frameFilters.Position(30,-30)
+Gui.frmProj.lblCutoff.Create(Label,"Cutoff Date",True,1005,255,0,30,180,True,0,"Arial",8,-2147483633,0)
+Gui.frmProj.lblCutoff.Parent("frameFilters")
+Gui.frmProj.dtpCutoff.Create(DatePicker)
+Gui.frmProj.dtpCutoff.Size(1440,285)
+Gui.frmProj.dtpCutoff.Position(30,390)
+Gui.frmProj.dtpCutoff.Parent("frameFilters")
+Gui.frmProj.chkCutoff.Create(CheckBox)
+Gui.frmProj.chkCutoff.Size(825,360)
+Gui.frmProj.chkCutoff.Position(330,735)
+Gui.frmProj.chkCutoff.Parent("frameFilters")
+Gui.frmProj.chkCutoff.Alignment(2)
+Gui.frmProj.chkCutoff.Event(Click,chkCutoff_Click)
+Gui.frmProj.cmdRefresh.Create(Button)
+Gui.frmProj.cmdRefresh.Size(630,375)
+Gui.frmProj.cmdRefresh.Position(4470,780)
+Gui.frmProj.cmdRefresh.Caption("REFRESH")
+Gui.frmProj.cmdRefresh.Event(Click,MenuClickRefresh)
+Gui.frmProj.frameFilters2.Create(Frame)
+Gui.frmProj.frameFilters2.Size(2835,1185)
+Gui.frmProj.frameFilters2.Position(1590,-30)
+Gui.frmProj.pbStatus.Create(ProgressBar)
+Gui.frmProj.pbStatus.Visible(False)
+Gui.frmProj.pbStatus.Size(2355,225)
+Gui.frmProj.pbStatus.Position(45,900)
+Gui.frmProj.pbStatus.Parent("frameFilters2")
+Gui.frmProj.cboProjects.Create(ComboBox)
+Gui.frmProj.cboProjects.Size(2340,330)
+Gui.frmProj.cboProjects.Position(45,540)
+Gui.frmProj.cboProjects.Parent("frameFilters2")
+Gui.frmProj.cboCustomer.Create(ComboBox)
+Gui.frmProj.cboCustomer.Size(2340,330)
+Gui.frmProj.cboCustomer.Position(45,135)
+Gui.frmProj.cboCustomer.Parent("frameFilters2")
+Gui.frmProj.cmdCustBrw.Create(Button)
+Gui.frmProj.cmdCustBrw.Size(375,375)
+Gui.frmProj.cmdCustBrw.Position(2430,135)
+Gui.frmProj.cmdCustBrw.Parent("frameFilters2")
+Gui.frmProj.cmdCustBrw.Caption("^")
+Gui.frmProj.cmdCustBrw.Event(Click,cmdCustBrw_Click)
+Gui.frmProj.cmdProjBrw.Create(Button)
+Gui.frmProj.cmdProjBrw.Size(375,375)
+Gui.frmProj.cmdProjBrw.Position(2430,525)
+Gui.frmProj.cmdProjBrw.Parent("frameFilters2")
+Gui.frmProj.cmdProjBrw.Caption("^")
+Gui.frmProj.cmdProjBrw.Event(Click,cmdProjBrw_Click)
+Gui.frmProj.framePermissions.Create(Frame)
+Gui.frmProj.framePermissions.Size(1965,390)
+Gui.frmProj.framePermissions.Position(11415,-30)
+Gui.frmProj.optView.Create(Option)
+Gui.frmProj.optView.Size(690,195)
+Gui.frmProj.optView.Position(225,150)
+Gui.frmProj.optView.Caption("View")
+Gui.frmProj.optView.BackColor(15790320)
+Gui.frmProj.optView.ForeColor(0)
+Gui.frmProj.optView.Parent("framePermissions")
+Gui.frmProj.optEdit.Create(Option)
+Gui.frmProj.optEdit.Enabled(False)
+Gui.frmProj.optEdit.Size(690,195)
+Gui.frmProj.optEdit.Position(1050,150)
+Gui.frmProj.optEdit.Caption("Edit")
+Gui.frmProj.optEdit.Parent("framePermissions")
+Gui.frmProj.lblStatus.Create(Label,"Loading Data....",False,1920,255,0,11460,930,True,0,"Arial",8,-2147483633,0)
+Gui.frmWeb..Create
+Gui.frmWeb..Caption("Global Shop Solutions - Web Sites")
+Gui.frmWeb..Size(3990,1665)
+Gui.frmWeb..MinX(0)
+Gui.frmWeb..MinY(0)
+Gui.frmWeb..Position(0,0)
+Gui.frmWeb..BackColor(-2147483633)
+Gui.frmWeb..MousePointer(0)
+Gui.frmWeb..MaxButton(False)
+Gui.frmWeb..Sizeable(False)
+Gui.frmWeb..Event(UnLoad,frmWeb_UnLoad)
+Gui.frmWeb..MinButton(False)
+Gui.frmWeb.cmdGSS.Create(Button)
+Gui.frmWeb.cmdGSS.Size(3615,375)
+Gui.frmWeb.cmdGSS.Position(120,45)
+Gui.frmWeb.cmdGSS.Caption("Global Shop Solutions")
+Gui.frmWeb.cmdGSS.Event(Click,cmdGSS_Click)
+Gui.frmWeb.cmdServ.Create(Button)
+Gui.frmWeb.cmdServ.Size(3615,375)
+Gui.frmWeb.cmdServ.Position(120,450)
+Gui.frmWeb.cmdServ.Caption("ServiceWeb")
+Gui.frmWeb.cmdServ.Event(Click,cmdServ_Click)
+Gui.frmWeb.cmdUpd.Create(Button)
+Gui.frmWeb.cmdUpd.Size(3615,375)
+Gui.frmWeb.cmdUpd.Position(120,855)
+Gui.frmWeb.cmdUpd.Caption("GSS Updates")
+Gui.frmWeb.cmdUpd.Event(Click,cmdUpd_Click)
+Gui.frmProjBrw..Create
+Gui.frmProjBrw..Size(15225,6330)
+Gui.frmProjBrw..MinX(0)
+Gui.frmProjBrw..MinY(0)
+Gui.frmProjBrw..Position(0,0)
+Gui.frmProjBrw..BackColor(-2147483633)
+Gui.frmProjBrw..MousePointer(0)
+Gui.frmProjBrw..Event(UnLoad,frmProjBrw_UnLoad)
+Gui.frmProjBrw..Caption("Select a Project")
+Gui.frmProjBrw.cmdSelect.Create(Button)
+Gui.frmProjBrw.cmdSelect.Size(975,375)
+Gui.frmProjBrw.cmdSelect.Position(90,5565)
+Gui.frmProjBrw.cmdSelect.Caption("Select")
+Gui.frmProjBrw.cmdSelect.Event(Click,cmdSelect_Click)
+Gui.frmProjBrw.cmdCancel.Create(Button)
+Gui.frmProjBrw.cmdCancel.Size(975,375)
+Gui.frmProjBrw.cmdCancel.Position(1140,5565)
+Gui.frmProjBrw.cmdCancel.Caption("Cancel")
+Gui.frmProjBrw.cmdCancel.Event(Click,cmdCancel_Click)
+Gui.frmProjBrw.GsGCProjBrw.Create(GsGridControl)
+Gui.frmProjBrw.GsGCProjBrw.Size(15015,5370)
+Gui.frmProjBrw.GsGCProjBrw.Position(90,120)
+Gui.frmProjBrw.GsGCProjBrw.Event(RowCellClick,GsGCProjBrw_RowCellClick)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+	V.Global.bLoadData.Declare
+	V.Global.bLongPart.Declare
+	V.Global.sProjPhase.Declare
+	V.Global.iRowIndex.Declare
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sIcon.Declare
+	V.Local.sGssLogo.Declare
+	V.Local.dStartDate.Declare
+	V.Local.bEditWO.Declare
+	'Edited to work in 2020.1 -SS 11/9/21
+
+	F.Intrinsic.String.Build("{0}\gss2.ico",V.Caller.GasDir,v.Local.sIcon)
+	F.Intrinsic.String.Build("{0}\GAB_GSS_Logo_Green_Dash.png",V.Caller.GasDir,V.Local.sGssLogo)
+	Gui.frmWeb..Icon(V.Local.sIcon)
+	Gui.frmProj..Icon(V.Local.sIcon)
+	Gui.frmProj.picGSSLogo.Picture(V.Local.sGssLogo)
+	
+	Gui.frmProj.optView.Value(True)
+	Gui.frmProj.optEdit.Value(False)
+	
+	F.Global.Security.IsInGroup(V.Caller.User,"EditWO",V.Caller.CompanyCode,V.Local.bEditWO)
+	F.Intrinsic.Control.If(V.Local.bEditWO)
+		Gui.frmProj.optEdit.Enabled(True)
+	F.Intrinsic.Control.EndIf
+
+	Function.Intrinsic.Control.CallSub(SetAnchors)
+'	Function.Intrinsic.Control.CallSub(CheckTable)
+	F.Intrinsic.Control.CallSub(CheckLongPart)
+	Function.Intrinsic.Control.CallSub(LoadComboBoxes)
+	Gui.frmProj..Show
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.Main.End
+
+Program.Sub.frmProj_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.End
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmProj_UnLoad.End
+
+Program.Sub.SetAnchors.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	'Anchor Values
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	Gui.frmProj.picGSSLogo.Anchor(1)
+	Gui.frmProj.frameFilters.Anchor(5)
+	Gui.frmProj.frameFilters2.Anchor(5)
+	Gui.frmProj.cmdRefresh.Anchor(5)
+	Gui.frmProj.framePermissions.Anchor(9)
+	Gui.frmProj.frameLegend.Anchor(9)
+	Gui.frmProj.GsGCProj.Anchor(15)
+	Gui.frmProjBrw.GsGCProjBrw.Anchor(15)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetAnchors.End
+
+Program.Sub.CheckLongPart.Start
+	F.Global.General.ReadOption("400861",0,False,"0000",V.Global.bLongPart)
+	F.Intrinsic.Control.If(V.Global.bLongPart,=,False)
+		F.Global.General.ReadOption("400861",0,False,"0004",V.Global.bLongPart)
+	F.Intrinsic.Control.EndIf
+Program.Sub.CheckLongPart.End
+
+Program.Sub.LoadComboBoxes.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection(300)
+	
+	'Customers
+	F.Data.DataTable.CreateFromSQL("dtCust","con","Select ' All Customers' As Customer Union Select Name_Customer As Customer From Customer_Master Where Rec = '1';",True)
+	Gui.frmProj.cboCustomer.AddItems("DataTable","dtCust","Customer","Customer")
+	Gui.frmProj.cboCustomer.Text(" All Customers")
+	'Projects
+	F.Data.DataTable.CreateFromSQL("dtProjCbo","con","Select ' All Projects' As Project Union Select Project From Project_Master;",True)
+	Gui.frmProj.cboProjects.AddItems("DataTable","dtProjCbo","Project","Project")
+	Gui.frmProj.cboProjects.Text(" All Projects")
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadComboBoxes.End
+
+Program.Sub.cmdCustBrw_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sRet.Declare
+
+	F.Intrinsic.UI.Browser(205,,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet,<>,"***CANCEL***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		Gui.frmProj.cboCustomer.Text(V.Local.sRet(1))
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdCustBrw_Click.End
+
+Program.Sub.cmdProjBrw_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	V.Local.sRet.Declare
+	
+	F.Intrinsic.Control.If(V.DataTable.dtProjBrw.Exists)
+		F.Data.DataTable.Close("dtProjBrw")
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!con.OpenCompanyConnection(500)
+	F.Data.DataTable.CreateFromSQL("dtProjBrw","con","Select Project,Descr,A.Customer,Name_Customer,User_1,User_2,User_3,User_4,User_5 From V_Project_Master A Left Join V_Customer_Master B On A.Customer = B.Customer;",True)
+	F.ODBC.Connection!con.Close
+	
+	'Create GridView from DataView
+	Gui.frmProjBrw.GsGCProjBrw.AddGridviewFromDatatable("gvProjBrw","dtProjBrw")
+	Gui.frmProjBrw.GsGCProjBrw.SuspendLayout()
+	'Set Grid Propertites
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","MultiSelect",True)
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","Editable",False)
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","ReadOnly",True)
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","AllowSort",True)
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","AllowFilter",True)
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","OptionsDetailShowDetailTabs",False)
+	Gui.frmProjBrw.GsGCProjBrw.SetGridViewProperty("gvProjBrw","OptionsViewShowGroupPanel",True)
+	
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Project","Caption","Project")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Descr","Caption","Description")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Customer","Caption","Customer")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Name_Customer","Caption","Customer Name")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_1","Caption","User 1")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_2","Caption","User 2")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_3","Caption","User 3")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_4","Caption","User 4")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_5","Caption","User 5")
+
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Project","MinWidth","85")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Descr","MinWidth","150")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Customer","MinWidth","85")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Name_Customer","MinWidth","150")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_1","MinWidth","150")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_2","MinWidth","150")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_3","MinWidth","150")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_4","MinWidth","150")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_5","MinWidth","150")
+	
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Project","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Descr","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Customer","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Name_Customer","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_1","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_2","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_3","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_4","HeaderHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","User_5","HeaderHAlignment","Center")
+	
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Project","CellHAlignment","Center")
+	Gui.frmProjBrw.GsGCProjBrw.SetColumnProperty("gvProjBrw","Customer","CellHAlignment","Center")
+	
+	Gui.frmProjBrw.GsGCProjBrw.ResumeLayout()
+	Gui.frmProjBrw.GsGCProjBrw.MainView("gvProjBrw")
+	
+	Gui.frmProjBrw..Show
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdProjBrw_Click.End
+
+Program.Sub.cmdSelect_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmProj.cboProjects.Text(V.DataTable.dtProjBrw(V.Global.iRowIndex).Project!FieldVal)
+	Gui.frmProjBrw..Visible(False)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdSelect_Click.End
+
+Program.Sub.cmdCancel_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmProjBrw..Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdCancel_Click.End
+
+Program.Sub.frmProjBrw_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+
+	Gui.frmProjBrw..Visible(False)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmProjBrw_UnLoad.End
+
+Program.Sub.GsGCProjBrw_RowCellClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Global.iRowIndex.Set(V.Args.RowIndex)
+
+	F.Intrinsic.Control.If(v.Args.Clicks,=,2)
+		F.Intrinsic.Control.CallSub(cmdSelect_Click)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.GsGCProjBrw_RowCellClick.End
+
+Program.Sub.SetContextMenus.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmProj..ContextMenuCreate("ctxProj")
+	Gui.frmProj.GsGCProj.ContextMenuAttach("ctxProj")
+	Gui.frmProj..ContextMenuAddItem("ctxProj","Refresh",0,"Refresh")
+	Gui.frmProj..ContextMenuSetItemEventHandler("ctxProj","Refresh","MenuClickRefresh")
+	Gui.frmProj..ContextMenuAddItem("ctxProj","Export",0,"Export")
+	Gui.frmProj..ContextMenuSetItemEventHandler("ctxProj","Export","MenuClickExport")
+	Gui.frmProj..ContextMenuAddItem("ctxProj","ResetColumns",0,"Reset Columns")
+	Gui.frmProj..ContextMenuSetItemEventHandler("ctxProj","ResetColumns","MenuClickResetColumns")
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.SetContextMenus.End
+
+Program.Sub.MenuClickRefresh.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Control.CallSub(LoadData)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickRefresh.End
+
+Program.Sub.MenuClickExport.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+	V.Local.iRet.Declare
+	V.Local.sForm.Declare(String,"FrmProj")
+	V.Local.sControl.Declare
+
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXPROJ")
+			V.Local.sControl.Set("GsGCProj")
+	F.Intrinsic.Control.EndSelect
+
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+	F.Intrinsic.Control.If(V.Local.bExcel)
+		F.Intrinsic.String.Build("{0}\GAB_{1}_Export.xlsx",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"xlsx")
+			F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Else
+		F.Intrinsic.String.Build("{0}\GAB_{1}_Export.csv",V.Caller.LocalGssTempDir,V.Local.sControl,V.Local.sFileExport)
+		F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+		F.Intrinsic.Control.If(V.Local.bFileLocked)
+			F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+			F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+		F.Intrinsic.Control.Else
+			Gui.[V.Local.sForm].[V.Local.sControl].Export(V.Local.sFileExport,"csv")
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickExport.End
+
+Program.Sub.MenuClickResetColumns.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bSerialize.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.MenuName)
+		F.Intrinsic.Control.Case("CTXPROJ")
+			F.ODBC.Connection!common.OpenConnection(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+			F.ODBC.Connection!common.Execute("Delete From Gs_Registry Where Reg_ID = 4780 And Seq = 1000;")
+			F.ODBC.Connection!common.Close
+	F.Intrinsic.Control.EndSelect
+	
+	V.Global.bLoadData.Set(False)
+	F.Intrinsic.Control.CallSub(LoadData)
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.MenuClickResetColumns.End
+
+Program.Sub.LoadData.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmProj.lblStatus.Visible(True)
+	Gui.frmProj.cmdRefresh.Enabled(False)
+	Gui.frmProj.GsGCProj.Enabled(False)
+	
+	F.Intrinsic.Control.If(V.Global.bLoadData)
+		F.Intrinsic.Control.CallSub(Serialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.CallSub(LoadDtProj)
+	F.Intrinsic.Control.If(v.DataTable.dtProj.RowCount,<>,0)
+		F.Intrinsic.Control.CallSub(LoadDtWOs)
+	F.Intrinsic.Control.EndIf
+	V.Global.bLoadData.Set(True)
+	
+	F.Intrinsic.Control.CallSub(Deserialize)
+	
+	Gui.frmProj.cmdRefresh.Enabled(True)
+	Gui.frmProj.GsGCProj.Enabled(True)
+	Gui.frmProj.lblStatus.Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadData.End
+
+Program.Sub.LoadDtProj.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSQL.Declare
+	V.Local.dCutoff.Declare
+	V.Local.dStartDate.Declare
+	V.Local.dEndDate.Declare
+	V.Local.dLastMonth.Declare
+	V.Local.dLastBegMonth.Declare
+	V.Local.dLastEndMonth.Declare
+	V.Local.sFilter.Declare
+	
+	V.Local.dCutoff.Set(V.Screen.FrmProj!dtpCutoff.Value)
+
+	F.Intrinsic.Control.If(V.DataTable.dtProjData.Exists)
+		F.Data.DataTable.Close("dtProjData")
+		F.Data.DataTable.Close("dtProj")
+		Gui.frmProj.GsGCProj.ClearGrouping("gvProj")
+	F.Intrinsic.Control.Else
+		'Gui.frmProj.cmdSaveRev.Enabled(True)
+		F.Intrinsic.Control.CallSub(SetContextMenus)
+	F.Intrinsic.Control.EndIF
+	
+	Gui.frmProj.lblStatus.Caption("Loading Projects....")
+	Gui.frmProj.pbStatus.Visible(True)
+	Gui.frmProj.pbStatus.Min(0)
+	Gui.frmProj.pbStatus.Max(100)
+	Gui.frmProj.pbStatus.Value(5)
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+	
+	F.Data.DataTable.CreateFromSQL("dtProjData","con","Select Distinct A.Project,A.Phase,B.Descr,B.Orig_Start,B.Orig_End,B.Customer From V_Project_Phase_Chk A Join V_Project_Master B On A.Project= B.Project;",True)
+		Gui.frmProj.pbStatus.Value(10)
+	'Set Customer Name
+		F.Data.DataTable.AddColumn("dtProjData","Cust_Name",String,"")
+		F.Data.Dictionary.CreateFromSQL("dCustName","con","Select Customer,Name_Customer From V_Customer_Master Order By Customer;")
+		F.Data.Dictionary.SetDefaultReturn("dCustName","")
+		F.Data.DataTable.FillFromDictionary("dtProjData","dCustName","Customer","Cust_Name")
+		F.Data.Dictionary.Close("dCustName")
+	'Create Project and Phase Key
+		F.Data.DataTable.AddExpressionColumn("dtProjData","ProjPhase",String,"IIF(Project+Phase Is Null,'',Project+Phase)")
+	'Orig_Hours
+		F.Data.DataTable.AddColumn("dtProjData","Orig_Hours",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dOrigHrs","con","Select Project+Phase,Orig_Hours From V_Project_Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dOrigHrs",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dOrigHrs","ProjPhase","Orig_Hours")
+		F.Data.Dictionary.Close("dOrigHrs")
+	'Orig_Labr
+		F.Data.DataTable.AddColumn("dtProjData","Orig_Labr",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dOrigLbr","con","Select Project+Phase,Orig_Labr From V_Project_Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dOrigLbr",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dOrigLbr","ProjPhase","Orig_Labr")
+		F.Data.Dictionary.Close("dOrigLbr")
+	'Orig_Matl
+		F.Data.DataTable.AddColumn("dtProjData","Orig_Matl",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dOrigMatl","con","Select Project+Phase,Orig_Matl From V_Project_Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dOrigMatl",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dOrigMatl","ProjPhase","Orig_Matl")
+		F.Data.Dictionary.Close("dOrigMatl")
+	'Orig_Outs
+		F.Data.DataTable.AddColumn("dtProjData","Orig_Outs",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dOrigOuts","con","Select Project+Phase,Orig_Outs From V_Project_Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dOrigOuts",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dOrigOuts","ProjPhase","Orig_Outs")
+		F.Data.Dictionary.Close("dOrigOuts")
+	'Orig_Cost
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Orig_Cost",Float,"[Orig_Labr]+[Orig_Matl]+[Orig_Outs]")
+	'Orig_Sales
+		F.Data.DataTable.AddColumn("dtProjData","Orig_Sales",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dOrigSales","con","Select Project+Phase,Orig_Sales From V_Project_Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dOrigSales",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dOrigSales","ProjPhase","Orig_Sales")
+		F.Data.Dictionary.Close("dOrigSales")
+	'Orig_GM
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Orig_GM",Float,"[Orig_Sales]-[Orig_Cost]")
+	'Orig_GMP
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Orig_GMP",Float,"IIF([Orig_Sales]-[Orig_Cost] > 0,([Orig_Sales]-[Orig_Cost])/[Orig_Sales],0)")
+		Gui.frmProj.pbStatus.Value(30)
+	'Cur_Hours
+		F.Data.DataTable.AddColumn("dtProjData","Cur_Hours",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dCurLbrHrs","con","Select Project+Phase,Sum(Cur_Hours) From V_Project_Curr_Budg Group By Project,Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dCurLbrHrs",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dCurLbrHrs","ProjPhase","Cur_Hours")
+		F.Data.Dictionary.Close("dCurLbrHrs")
+	'Cur_Labr
+		F.Data.DataTable.AddColumn("dtProjData","Cur_Labr",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dCurLbr","con","Select Project+Phase,Sum(Cur_Labr) From V_Project_Curr_Budg Group By Project,Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dCurLbr",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dCurLbr","ProjPhase","Cur_Labr")
+		F.Data.Dictionary.Close("dCurLbr")
+	'Cur_Matl
+		F.Data.DataTable.AddColumn("dtProjData","Cur_Matl",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dCurMatl","con","Select Project+Phase,Sum(Cur_Matl) From V_Project_Curr_Budg Group By Project,Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dCurMatl",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dCurMatl","ProjPhase","Cur_Matl")
+		F.Data.Dictionary.Close("dCurMatl")
+	'Cur_Outs
+		F.Data.DataTable.AddColumn("dtProjData","Cur_Outs",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dCurOuts","con","Select Project+Phase,Sum(Cur_Outs) From V_Project_Curr_Budg Group By Project,Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dCurOuts",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dCurOuts","ProjPhase","Cur_Outs")
+		F.Data.Dictionary.Close("dCurOuts")
+	'Cur_Cost
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Cur_Cost",Float,"[Cur_Labr]+[Cur_Matl]+[Cur_Outs]")
+	'Est_Labor
+		F.Data.DataTable.AddColumn("dtProjData","Est_Labor",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dEstLabor","con","Select B.Project+B.Phase,Sum(A.Setup+A.Hours_Estimated) As Est_Labor From V_Job_Operations A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'L' And B.Project <> '' Group By B.Project,B.Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dEstLabor",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dEstLabor","ProjPhase","Est_Labor")
+		F.Data.Dictionary.Close("dEstLabor")
+		Gui.frmProj.pbStatus.Value(40)
+	'Act_Hours
+		F.Data.DataTable.AddColumn("dtProjData","Act_Hours",Float,0)
+		F.Intrinsic.Control.If(V.Screen.FrmProj!chkCutoff.Value,=,0)
+			V.Local.sSQL.Set("Select B.Project+B.Phase,Sum(A.Hours_Worked) As Hours_Worked From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'L' And B.Project <> '' Group By B.Project,B.Phase;")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Select B.Project+B.Phase,Sum(A.Hours_Worked) As Hours_Worked From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'L' And B.Project <> '' And Date_Sequence <= '{0}' Group By B.Project,B.Phase;",V.Local.dCutoff.PervasiveDate,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Data.Dictionary.CreateFromSQL("dActLbrHrs","con",V.Local.sSQL)
+		F.Data.Dictionary.SetDefaultReturn("dActLbrHrs",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dActLbrHrs","ProjPhase","Act_Hours")
+		F.Data.Dictionary.Close("dActLbrHrs")
+	'Act_Labr
+		F.Data.DataTable.AddColumn("dtProjData","Act_Labr",Float,0)
+		F.Intrinsic.Control.If(V.Screen.FrmProj!chkCutoff.Value,=,0)
+			V.Local.sSQL.Set("Select B.Project+B.Phase,Sum(A.Amount_Labor+A.Amt_Overhead) As Amount_Labor From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'L' And B.Project <> '' Group By B.Project,B.Phase;")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Select B.Project+B.Phase,Sum(A.Amount_Labor+A.Amt_Overhead) As Amount_Labor From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'L' And B.Project <> '' And Date_Sequence <= '{0}' Group By B.Project,B.Phase;",V.Local.dCutoff.PervasiveDate,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Data.Dictionary.CreateFromSQL("dActLbr","con",V.Local.sSQL)
+		F.Data.Dictionary.SetDefaultReturn("dActLbr",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dActLbr","ProjPhase","Act_Labr")
+		F.Data.Dictionary.Close("dActLbr")
+	'Act_Matl
+		F.Data.DataTable.AddColumn("dtProjData","Act_Matl",Float,0)
+		F.Intrinsic.Control.If(V.Screen.FrmProj!chkCutoff.Value,=,0)
+			V.Local.sSQL.Set("Select B.Project+B.Phase,Sum(A.Amount_Labor) As Material From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'M' And B.Project <> '' Group By B.Project,B.Phase;")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Select B.Project+B.Phase,Sum(A.Amount_Labor) As Material From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'M' And B.Project <> '' And Date_Sequence <= '{0}' Group By B.Project,B.Phase;",V.Local.dCutoff.PervasiveDate,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Data.Dictionary.CreateFromSQL("dActLMatl","con",V.Local.sSQL)
+		F.Data.Dictionary.SetDefaultReturn("dActLMatl",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dActLMatl","ProjPhase","Act_Matl")
+		F.Data.Dictionary.Close("dActLMatl")
+	'Act_Outs
+		F.Data.DataTable.AddColumn("dtProjData","Act_Outs",Float,0)
+		F.Intrinsic.Control.If(V.Screen.FrmProj!chkCutoff.Value,=,0)
+			V.Local.sSQL.Set("Select B.Project+B.Phase,Sum(A.Amount_Labor) As Outside From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'O' And B.Project <> '' Group By B.Project,B.Phase;")
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("Select B.Project+B.Phase,Sum(A.Amount_Labor) As Outside From V_Job_Detail A Left Join V_Job_Header B On A.Job = B.Job And A.Suffix = B.Suffix Where A.LMO = 'O' And B.Project <> '' And Date_Sequence <= '{0}' Group By B.Project,B.Phase;",V.Local.dCutoff.PervasiveDate,V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Data.Dictionary.CreateFromSQL("dActLOuts","con",V.Local.sSQL)
+		F.Data.Dictionary.SetDefaultReturn("dActLOuts",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dActLOuts","ProjPhase","Act_Outs")
+		F.Data.Dictionary.Close("dActLOuts")
+	'Act_Cost
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Act_Cost",Float,"[Act_Labr]+[Act_Matl]+[Act_Outs]")
+	'Act_Sales
+		F.Data.DataTable.AddColumn("dtProjData","Act_Sales",Float,0)
+		F.Data.Dictionary.CreateFromSQL("dActSales","con","Select A.Project+B.Phase,Sum(B.Extension) As Sales From V_Order_Header A Left Join V_Order_Lines B On A.Order_No = B.Order_No Where B.Line_Type = 'S' And A.Project+B.Phase <> '' Group By A.Project,B.Phase Union Select A.Project+B.Phase,Sum(B.Extension) As Sales From V_Order_Hist_Head A Left Join V_Order_Hist_Line B On A.Invoice = B.Invoice Where B.Line_Type = 'S' And A.Project+B.Phase <> '' Group By A.Project,B.Phase;")
+		F.Data.Dictionary.SetDefaultReturn("dActSales",0)
+		F.Data.DataTable.FillFromDictionary("dtProjData","dActSales","ProjPhase","Act_Sales")
+		F.Data.Dictionary.Close("dActSales")
+	'Act_GM
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Act_GM",Float,"[Act_Sales]-[Act_Cost]")
+	'Act_GMP
+		F.Data.DataTable.AddExpressionColumn("dtProjData","Act_GMP",Float,"IIF([Act_Sales]-[Act_Cost] <> 0,([Act_Sales]-[Act_Cost])/[Act_Sales],0)")
+	'EAC_GMP
+		F.Data.DataTable.AddExpressionColumn("dtProjData","EAC_GMP",Float,"IIF([Act_Sales]-[Cur_Cost] <> 0,([Act_Sales]-[Cur_Cost])/[Act_Sales],0)")
+		Gui.frmProj.pbStatus.Value(50)
+		Gui.frmProj.pbStatus.Value(60)
+		Gui.frmProj.pbStatus.Value(70)
+		Gui.frmProj.pbStatus.Value(80)
+	F.ODBC.Connection!con.Close
+	
+	'Customer
+	F.Intrinsic.Control.If(V.Screen.FrmProj!cboCustomer.Text,<>," All Customers")
+		F.Intrinsic.String.Build("Cust_Name = '{0}'",V.Screen.FrmProj!cboCustomer.Text,V.Local.sFilter)
+	F.Intrinsic.Control.EndIf
+	'Project
+	F.Intrinsic.Control.If(V.Screen.FrmProj!cboProjects.Text,<>," All Projects")
+		F.Intrinsic.Control.If(V.Local.sFilter,=,"")
+			F.Intrinsic.String.Build("Project = '{0}'",V.Screen.FrmProj!cboProjects.Text,V.Local.sFilter)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0} And Project = '{1}'",V.Local.sFilter,V.Screen.FrmProj!cboProjects.Text,V.Local.sFilter)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+	
+	F.Data.DataView.Create("dtProjData","dvProjData",22,V.Local.sFilter,"")
+	F.Data.DataView.ToDataTable("dtProjData","dvProjData","dtProj",True)
+	Gui.frmProj.pbStatus.Value(90)
+	F.Intrinsic.Control.CallSub(LoadGvProj)
+
+	Gui.frmProj.pbStatus.Value(100)
+	Gui.frmProj.pbStatus.Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDtProj.End
+
+Program.Sub.LoadGvProj.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sCaption.Declare
+
+	Gui.frmProj.GsGCProj.AddGridviewFromDatatable("gvProj","dtProj")
+	Gui.frmProj.GsGCProj.SuspendLayout()
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvProj","MultiSelect",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvProj","AllowSort",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvProj","AllowFilter",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvProj","OptionsDetailShowDetailTabs",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvProj","OptionsViewShowGroupPanel",True)
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","ProjPhase","Visible",False)
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","Fixed","Left")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","Fixed","Left")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","Fixed","Left")
+	
+	'Project Info
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","Caption","Project")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","Caption","Phase")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","Caption","Description")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","Caption","Start Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","Caption","Finish Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","Caption","Customer")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","Caption","Customer Name")
+	'Original Estimates
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","Caption","Labor Hours")
+	F.Intrinsic.String.Build("Labor {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Matl {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Outside Service {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Total Costs {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Sales {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Gross Margin {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","Caption",V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","Caption","GM%")
+	'Current Budget
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","Caption","Labor Hours")
+	F.Intrinsic.String.Build("Labor {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Matl {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Outside Service {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Total Costs {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","Caption",V.Local.sCaption)
+	'Est_Labor
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","Caption","Planned Hours")
+	'Actuals
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","Caption","Labor Hours")
+	F.Intrinsic.String.Build("Labor {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Matl {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Outside Service {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Total Costs {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Sales {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","Caption",V.Local.sCaption)
+	F.Intrinsic.String.Build("Gross Margin {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","Caption",V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","Caption","GM%")
+	'EAC
+	F.Intrinsic.String.Build("EAC GM% {0}",V.Company.CurrencySymbol,V.Local.sCaption)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","Caption",V.Local.sCaption)
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","MinWidth","85")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","MinWidth","85")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","MinWidth","200")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","MinWidth","85")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","MinWidth","200")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","MinWidth","130")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","MinWidth","115")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","MinWidth","115")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","MinWidth","130")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","MinWidth","115")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","MinWidth","130")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","MinWidth","115")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","MinWidth","115")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","MinWidth","100")
+		
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","HeaderFontBold",True)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","HeaderHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","CellHAlignment","Center")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","AllowEdit",False)
+
+	'HeaderBackColor--Project Info--White
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","HeaderBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","HeaderBackColor","White")
+	'HeaderBackColor--Original Estimates--LightGray
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","HeaderBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","HeaderBackColor","LightGray")
+	'HeaderBackColor--Current Budget--BurlyWood
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","HeaderBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","HeaderBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","HeaderBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","HeaderBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","HeaderBackColor","BurlyWood")
+	'HeaderBackColor--Actuals--LightBlue
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","HeaderBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","HeaderBackColor","LightBlue")
+	'HeaderBackColor--EAC--White
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","HeaderBackColor","White")
+	'CellBackColor--Project Info--White
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Project","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Phase","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Descr","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Customer","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cust_Name","CellBackColor","White")
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","CellBackColor","White")
+	'CellBackColor--Original Estimates--LightGray
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Hours","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","CellBackColor","LightGray")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","CellBackColor","LightGray")
+	'CellBackColor--Current Budget--BurlyWood
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Hours","CellBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","CellBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","CellBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","CellBackColor","BurlyWood")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","CellBackColor","BurlyWood")
+	'CellBackColor--Actuals--LightBlue
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Hours","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","CellBackColor","LightBlue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","CellBackColor","LightBlue")
+	'CellBackColor--EAC--White
+'	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","CellBackColor","White")
+	'CellBackColor--Rev Recog--LightGreen
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GMP","DisplayCustomNumeric","###%")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GMP","DisplayCustomNumeric","###%")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","EAC_GMP","DisplayCustomNumeric","###%")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Est_Labor","DisplayCustomNumeric","###,###,##0.0")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Labr","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Matl","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Outs","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Cost","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Sales","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_GM","DisplayCustomNumeric","###,###,##0.00")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Labr","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Matl","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Outs","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Cur_Cost","DisplayCustomNumeric","###,###,##0.00")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Labr","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Matl","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Outs","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Cost","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_Sales","DisplayCustomNumeric","###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Act_GM","DisplayCustomNumeric","###,###,##0.00")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_Start","DisplayCustomDatetime","d")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvProj","Orig_End","DisplayCustomDatetime","d")
+	
+	'Original
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_Hours","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_Labr","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_Matl","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_Outs","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_Cost","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_Sales","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_GM","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Orig_GMP","Orig_Hours","Sum","","","n")
+	'Current
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Cur_Hours","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Cur_Labr","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Cur_Matl","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Cur_Outs","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Cur_Cost","Orig_Hours","Sum","","","n")
+	'Actuals
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Est_Labor","Orig_Hours","Average","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_Hours","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_Labr","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_Matl","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_Outs","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_Cost","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_Sales","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_GM","Orig_Hours","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvProj","Act_GMP","Orig_Hours","Average","","","n")
+
+	Gui.frmProj.GsGCProj.ResumeLayout()
+	Gui.frmProj.GsGCProj.MainView("gvProj")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadGvProj.End
+
+Program.Sub.Serialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	
+	'GvProj
+	Gui.frmProj.GsGCProj.Serialize("gvProj",V.Local.sSerialize)
+	F.Global.Registry.AddValue(V.Caller.User,V.Caller.CompanyCode,"GVPROJ",4780,1000,False,"Serialize",False,0,-999.0,1/1/1980,12:00:00 AM,V.Local.sSerialize)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.Serialize.End
+
+Program.Sub.Deserialize.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sSerialize.Declare
+	V.Local.bFile.Declare
+	
+	'GvProj
+	F.Global.Registry.ReadValue(V.Caller.User,V.Caller.CompanyCode,"GVPROJ",4780,1000,6,"",V.Local.sSerialize)
+	F.Intrinsic.Control.If(V.Local.sSerialize,<>,"")
+		Gui.frmProj.GsGCProj.Deserialize(V.Local.sSerialize)
+	F.Intrinsic.Control.EndIf
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End
+	F.Intrinsic.Control.EndTry
+Program.Sub.Deserialize.End
+
+Program.Sub.picGSSLogo_DblClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmWeb..Show
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.picGSSLogo_DblClick.End
+
+Program.Sub.frmWeb_UnLoad.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmWeb..Visible(False)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.frmWeb_UnLoad.End
+
+Program.Sub.cmdGSS_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://www.globalshopsolutions.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdGSS_Click.End
+
+Program.Sub.cmdServ_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-service.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdServ_Click.End
+
+Program.Sub.cmdUpd_Click.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	F.Intrinsic.Task.ShellExec(0,"Open","http://gss-updates.com/","","",0)
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.cmdUpd_Click.End
+
+Program.Sub.chkCutoff_Click.Start
+	F.Intrinsic.Control.If(V.Screen.FrmProj!chkCutoff.Value,=,0)
+		Gui.frmProj.dtpCutoff.Enabled(False)
+	F.Intrinsic.Control.Else
+		Gui.frmProj.dtpCutoff.Enabled(True)
+	F.Intrinsic.Control.EndIf
+Program.Sub.chkCutoff_Click.End
+
+Program.Sub.CheckTable.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.bExists.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+
+	F.ODBC.Connection!con.TableExists("GAB_4780_NOTES",V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.ODBC.Connection!con.Execute("CREATE TABLE GAB_4780_NOTES(PROJECT CHAR(6),PHASE CHAR(6),NOTES LONGVARCHAR);")
+		F.ODBC.Connection!con.Execute("CREATE INDEX GAB_4780_NOTESK00 USING 1 ON GAB_4780_NOTES(PROJECT);")
+		F.ODBC.Connection!con.Execute("CREATE INDEX GAB_4780_NOTESK01 USING 2 ON GAB_4780_NOTES(PHASE);")
+	F.Intrinsic.Control.EndIf
+
+	F.ODBC.Connection!con.TableExists("GAB_4780_WO_NOTES",V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.ODBC.Connection!con.Execute("CREATE TABLE GAB_4780_WO_NOTES(JS CHAR(9) NOT NULL,JOB CHAR(6),SUFFIX CHAR(3),NOTES LONGVARCHAR,PRIMARY KEY (JS));")
+		F.ODBC.Connection!con.Execute("CREATE INDEX GAB_4780_WO_NOTESK00 USING 1 ON GAB_4780_WO_NOTES(JOB);")
+		F.ODBC.Connection!con.Execute("CREATE INDEX GAB_4780_WO_NOTESK01 USING 2 ON GAB_4780_WO_NOTES(SUFFIX);")
+	F.Intrinsic.Control.EndIf
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.CheckTable.End
+
+Program.Sub.LoadDtWOs.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iCnt.Declare
+	V.Local.sSQL.Declare
+	V.Local.sRet.Declare
+	V.Local.sJob.Declare
+	V.Local.sSuffix.Declare
+	V.Local.fEstHrs.Declare
+	V.Local.fRemHrs.Declare
+	V.Local.fPcsRem.Declare
+	V.Local.sOper.Declare
+	
+	F.ODBC.Connection!con.OpenCompanyConnection
+
+	F.Intrinsic.Control.If(V.DataTable.dtProjDistinct.Exists)
+		F.Data.DataTable.Close("dtProjDistinct")
+	F.Intrinsic.Control.EndIf
+	
+	'Get All Projects
+	F.Data.DataView.Create("dtProj","dvProj",22,"","Project,Phase")
+	F.Data.DataView.ToDataTableDistinct("dtProj","dvProj","dtProjDistinct","Project*!*Phase",True)
+	F.Data.DataTable.AddExpressionColumn("dtProjDistinct","ProjPhase",String,"IIF(Project+Phase Is Null,'',Project+Phase)")
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtProjDistinct.RowCount--,1)
+		F.Intrinsic.Control.If(V.Local.iCnt,=,0)
+			F.Intrinsic.String.Build("'{0}'",V.DataTable.dtProjDistinct(V.Local.iCnt).ProjPhase!FieldValTrim,V.Global.sProjPhase)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Build("{0},'{1}'",V.Global.sProjPhase,V.DataTable.dtProjDistinct(V.Local.iCnt).ProjPhase!FieldValTrim,V.Global.sProjPhase)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+	
+	F.Intrinsic.String.Build("SELECT '' As Plus, JOB, SUFFIX, '' As SALESORDER, COALESCE(PART,'') AS PART, '' As DISPLAY_PART, LOCATION, PRODUCT_LINE, DESCRIPTION, DATE_START, DATE_DUE, CONVERT(0,SQL_FLOAT) AS EST_HRS, NUM_HOURS AS ACT_HRS, CONVERT(0,SQL_FLOAT) AS REM_HRS, '' AS OPER, QTY_ORDER, CONVERT(0,SQL_INTEGER) AS PCS_REM, CONCAT(JOB,SUFFIX) AS JS, D.Project+D.Phase As ProjPhase, CONVERT(0,SQL_BIT) AS IND_FLAG FROM V_JOB_HEADER A LEFT JOIN V_CUSTOMER_MASTER B ON A.CUSTOMER = B.CUSTOMER LEFT JOIN V_PROJECT_PHASE D ON A.PROJECT = D.PROJECT AND A.PHASE = D.PHASE WHERE ProjPhase IN ({0}) ORDER BY DATE_DUE, JOB, SUFFIX;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtProj$dtWOs","con",V.Local.sSQL,True)
+	F.Data.DataTable.AddDisplayPartColumn("dtProj$dtWOs",0,"PART","DISPLAY_PART")
+	
+	Gui.frmProj.lblStatus.Caption("Loading Work Orders....")
+	Gui.frmProj.pbStatus.Visible(True)
+	Gui.frmProj.pbStatus.Min(0)
+	F.Intrinsic.Control.If(V.DataTable.dtProj$dtWOs.RowCount,=,0)
+		Gui.frmProj.pbStatus.Max(100)
+	F.Intrinsic.Control.Else
+		Gui.frmProj.pbStatus.Max(V.DataTable.dtProj$dtWOs.RowCount)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.For(V.Local.iCnt,0,V.DataTable.dtProj$dtWOs.RowCount--,1)
+		Gui.frmProj.pbStatus.Value(V.Local.iCnt)
+		V.Local.sJob.Set(V.DataTable.dtProj$dtWOs(V.Local.iCnt).JOB!FieldVal)
+		V.Local.sSuffix.Set(V.DataTable.dtProj$dtWOs(V.Local.iCnt).SUFFIX!FieldVal)
+		F.Intrinsic.String.Build("SELECT TOP 1 SEQTYPE,SEQRES,PCSREMAIN FROM APSV3_JBLINES WHERE COMPLDATE IS NULL AND JOB = '{0}' AND SFX = '{1}' ORDER BY JOB,SFX,SEQ;",V.Local.sJob,V.Local.sSuffix,V.Local.sSQL)
+		F.ODBC.Connection!con.OpenLocalRecordsetRO("rstInfo",V.Local.sSQL)
+			F.Intrinsic.Control.If(V.ODBC.con!rstInfo.EOF,=,True)
+				V.Local.sOper.Set("WipToFG")
+				V.Local.FPcsRem.Set(0)
+			F.Intrinsic.Control.Else
+				V.Local.sOper.Set(V.ODBC.con!rstInfo.FieldValTrim!SEQRES)
+				V.Local.fPcsRem.Set(V.ODBC.con!rstInfo.FieldValFloat!PCSREMAIN)
+			F.Intrinsic.Control.EndIf
+		F.ODBC.con!rstInfo.Close
+
+'		F.Intrinsic.String.Build("SELECT CONVERT(SUM(HOURSORIG+INITSU),SQL_NUMERIC) AS EST_HRS FROM APSV3_JBLINES WHERE SEQTYPE = '1' AND JOB = '{0}' AND SFX = '{1}' GROUP BY JOB,SFX;",V.Local.sJob,V.Local.sSuffix,V.Local.sSQL)
+		F.Intrinsic.String.Build("SELECT CONVERT(SUM(HOURS_ESTIMATED+SETUP),SQL_NUMERIC) AS EST_HRS FROM V_JOB_OPERATIONS WHERE LMO = 'L' AND JOB = '{0}' AND SUFFIX = '{1}' GROUP BY JOB,SUFFIX;",V.Local.sJob,V.Local.sSuffix,V.Local.sSQL)
+		F.ODBC.Connection!con.ExecuteAndReturn(V.Local.sSQL,V.Local.fEstHrs)
+
+		F.Intrinsic.Control.If(V.Local.fEstHrs,=,0)
+			V.Local.fEstHrs.Set(0.0000)
+			V.Local.fRemHrs.Set(0.0000)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.Math.Sub(V.Local.fEstHrs,V.DataTable.dtProj$dtWOs(V.Local.iCnt).ACT_HRS!FieldValFloat,V.Local.fRemHrs)
+		F.Intrinsic.Control.EndIf
+
+		F.Data.DataTable.SetValue("dtProj$dtWOs",V.Local.iCnt,"EST_HRS",V.Local.fEstHrs,"REM_HRS",V.Local.fRemHrs,"OPER",V.Local.sOper,"PCS_REM",V.Local.fPcsRem)
+	F.Intrinsic.Control.Next(V.Local.iCnt)
+
+	'Indirect
+	F.Data.Dictionary.CreateFromSQL("dIndirect","con","Select Distinct Concat(Job,Suffix) AS JS,Convert(If('' = '',1,0),SQL_BIT) From Ind_Lbr_Accts;")
+	F.Data.Dictionary.SetDefaultReturn("dIndirect",False)
+	F.Data.DataTable.FillFromDictionary("dtProj$dtWOs","dIndirect","JS","IND_FLAG")
+	F.Data.Dictionary.Close("dIndirect")
+	'Sales Order
+	F.Data.Dictionary.CreateFromSQL("dSalesOrder","con","Select A.Project+B.Phase As ProjPhase,A.Order_No+'-'+Left(B.Record_No,3) As SalesOrder From V_Order_Header A Left Join V_Order_Lines B On A.Order_No = B.Order_No;")
+	F.Data.Dictionary.SetDefaultReturn("dSalesOrder","")
+	F.Data.DataTable.FillFromDictionary("dtProj$dtWOs","dSalesOrder","ProjPhase","SALESORDER")
+	F.Data.Dictionary.Close("dSalesOrder")
+
+	'Remove indirect Jobs
+	F.Data.DataView.Create("dtProj$dtWOs","dvWOs",22,"IND_FLAG <> True","DATE_DUE ASC,JOB ASC,SUFFIX ASC")
+	
+	F.Data.DataTable.AddRelation("dtProj","ProjPhase","dtProj$dtWOs","ProjPhase","WORK_ORDERS")
+	
+	F.Intrinsic.Control.CallSub(LoadGVWOs)
+	
+	'Load Material, Labor and Outside Seq Information
+	Gui.frmProj.pbStatus.Visible(True)
+	Gui.frmProj.pbStatus.Min(0)
+	Gui.frmProj.pbStatus.Max(100)
+	Gui.frmProj.pbStatus.Value(15)
+	Gui.frmProj.lblStatus.Caption("Loading Material....")
+	F.Intrinsic.Control.CallSub(LoadDTDVGVMatl)
+	Gui.frmProj.pbStatus.Value(30)
+	Gui.frmProj.pbStatus.Value(45)
+	Gui.frmProj.lblStatus.Caption("Loading Labor....")
+	F.Intrinsic.Control.CallSub(LoadDTDVGVLbr)
+	Gui.frmProj.pbStatus.Value(60)
+	Gui.frmProj.pbStatus.Value(75)
+	Gui.frmProj.lblStatus.Caption("Loading Outside....")
+	F.Intrinsic.Control.CallSub(LoadDTDVGVOut)
+	Gui.frmProj.pbStatus.Value(90)
+	Gui.frmProj.pbStatus.Value(100)
+	Gui.frmProj.pbStatus.Visible(False)
+	
+	F.ODBC.Connection!con.Close
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDtWOs.End
+
+Program.Sub.LoadGVWOs.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	Gui.frmProj.GsGCProj.AddGridViewFromDataView("gvWOs","dtProj","dvWOs")
+	Gui.frmProj.GsGCProj.SuspendLayout()
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvWOs","MultiSelect",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvWOs","AllowSort",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvWOs","AllowFilter",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvWOs","OptionsDetailShowDetailTabs",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvWOs","OptionsViewShowGroupPanel",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvWOs","EnableAppearanceOddRow",True)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","Plus","ShowCaption",False)
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PART","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JS","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ProjPhase","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","IND_FLAG","Visible",False)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","Caption","Job")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","Caption","Suffix")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","Caption","Sales Order")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","Caption","Part Number")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","Caption","Loc")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PRODUCT_LINE","Caption","PL")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DESCRIPTION","Caption","Description")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","Caption","Start Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","Caption","Due Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","Caption","Est. Hrs.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","Caption","Act. Hrs.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","Caption","Rem. Hrs.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","OPER","Caption","Current Operation")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","Caption","Order Qty.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","Caption","Pcs. Rem.")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","Plus","Width","0")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","MinWidth","50")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","MinWidth","40")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","MinWidth","150")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","MinWidth","35")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PRODUCT_LINE","MinWidth","35")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DESCRIPTION","MinWidth","200")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","OPER","MinWidth","120")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","MinWidth","75")
+	
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","Plus","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PRODUCT_LINE","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DESCRIPTION","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","OPER","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","HeaderFontBold",True)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","HeaderFontBold",True)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","Plus","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PRODUCT_LINE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DESCRIPTION","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","OPER","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","HeaderHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PRODUCT_LINE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","OPER","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","CellHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","Plus","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PRODUCT_LINE","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DESCRIPTION","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","OPER","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","AllowEdit",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","AllowEdit",False)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","JOB","CellForeColor","Blue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SUFFIX","CellForeColor","Blue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","SALESORDER","CellForeColor","Blue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","CellForeColor","Blue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","LOCATION","CellForeColor","Blue")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_START","DisplayCustomDatetime","d")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DATE_DUE","DisplayCustomDatetime","d")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","EST_HRS","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","ACT_HRS","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","REM_HRS","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","QTY_ORDER","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","PCS_REM","DisplayCustomNumeric","#,###,###,##0.00")
+	
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvWOs","EST_HRS","EST_HRS","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvWOs","ACT_HRS","ACT_HRS","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvWOs","REM_HRS","REM_HRS","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvWOs","QTY_ORDER","QTY_ORDER","Sum","","","n")
+	Gui.frmProj.GsGCProj.AddSummaryItem("gvWOs","PCS_REM","PCS_REM","Sum","","","n")
+	
+	F.Intrinsic.Control.If(V.Global.bLongPart)
+		Gui.frmProj.GsGCProj.SetColumnProperty("gvWOs","DISPLAY_PART","MinWidth","250")
+	F.Intrinsic.Control.EndIf
+
+	Gui.frmProj.GsGCProj.ResumeLayout()
+	
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadGVWOs.End
+
+Program.Sub.LoadDTDVGVMatl.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iRet.Declare
+	V.Local.iCnt.Declare
+	V.Local.sSQL.Declare
+	
+	'F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(A.JOB,A.SUFFIX) AS JBSF,CONCAT(CONCAT(A.JOB,A.SUFFIX),A.SEQ) AS JSS,A.JOB AS JOB1,A.SUFFIX AS SFX1,A.SEQ AS SEQ1,COALESCE(A.PART,'') AS PART1,'' As DISPLAY_PART1,C.LOCATION AS LOCATION1,A.DESCRIPTION AS DESCR,E.VENDOR,E.PURCHASE_ORDER,LEFT(E.RECORD_NO,3) AS LINE,IF(E.DATE_DUE_LINE = '1900-1-1',NULL,E.DATE_DUE_LINE) AS DATE_DUE_LINE,E.COST AS UNIT_COST,E.EXTENSION AS DOLLARS_ESTIMATED,A.DOLLARS_ACTUAL,B.PCSTOPROD,B.PCSCOMPL,B.PCSREMAIN,IF(D.QTY_ONHAND IS NULL,'0.0000',D.QTY_ONHAND) AS QTY_ONHAND,IF(D.QTY_ONORDER_PO IS NULL,'0.0000',D.QTY_ONORDER_PO) AS QTY_ONORDER_PO,IF(D.QTY_ONORDER_WO IS NULL,'0.0000',D.QTY_ONORDER_WO) AS QTY_ONORDER_WO,IF(D.QTY_REQUIRED IS NULL,'0.0000',D.QTY_REQUIRED) AS QTY_REQUIRED,C.Project+C.Phase As ProjPhase FROM JOB_OPERATIONS A LEFT JOIN APSV3_JBLINES B ON JSS = B.JSS LEFT JOIN JOB_HEADER C ON A.JOB = C.JOB AND A.SUFFIX = C.SUFFIX LEFT JOIN INVENTORY_MSTR D ON A.PART = D.PART AND C.LOCATION = D.LOCATION LEFT JOIN V_PO_LINES E ON A.JOB = E.JOB AND A.SUFFIX = E.SUFFIX  AND A.SEQ = E.SEQUENCE WHERE A.LMO = 'M' AND A.SEQ NOT IN ('995000','998000') AND ProjPhase IN ({0}) ORDER BY SEQ1;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(A.JOB,A.SUFFIX) AS JBSF,CONCAT(CONCAT(A.JOB,A.SUFFIX),A.SEQ) AS JSS,A.JOB AS JOB1,A.SUFFIX AS SFX1,A.SEQ AS SEQ1,COALESCE(A.PART,'') AS PART1,'' As DISPLAY_PART1,C.LOCATION AS LOCATION1,A.DESCRIPTION AS DESCR,E.VENDOR,E.PURCHASE_ORDER,LEFT(E.RECORD_NO,3) AS LINE,IF(E.DATE_DUE_LINE = '1900-1-1',NULL,E.DATE_DUE_LINE) AS DATE_DUE_LINE,E.COST AS UNIT_COST,E.EXTENSION AS DOLLARS_ESTIMATED,A.DOLLARS_ACTUAL,A.HOURS_ESTIMATED AS PCSTOPROD,A.HOURS_ACTUAL AS PCSCOMPL,A.HOURS_ESTIMATED - A.HOURS_ACTUAL AS PCSREMAIN,IF(D.QTY_ONHAND IS NULL,'0.0000',D.QTY_ONHAND) AS QTY_ONHAND,IF(D.QTY_ONORDER_PO IS NULL,'0.0000',D.QTY_ONORDER_PO) AS QTY_ONORDER_PO,IF(D.QTY_ONORDER_WO IS NULL,'0.0000',D.QTY_ONORDER_WO) AS QTY_ONORDER_WO,IF(D.QTY_REQUIRED IS NULL,'0.0000',D.QTY_REQUIRED) AS QTY_REQUIRED,C.Project+C.Phase As ProjPhase FROM JOB_OPERATIONS A LEFT JOIN JOB_HEADER C ON A.JOB = C.JOB AND A.SUFFIX = C.SUFFIX LEFT JOIN INVENTORY_MSTR D ON A.PART = D.PART AND C.LOCATION = D.LOCATION LEFT JOIN V_PO_LINES E ON A.JOB = E.JOB AND A.SUFFIX = E.SUFFIX  AND A.SEQ = E.SEQUENCE WHERE A.LMO = 'M' AND A.SEQ NOT IN ('995000','998000') AND ProjPhase IN ({0}) ORDER BY SEQ1;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtProj$dtWOs$dtMatl","con",V.Local.sSQL,True)
+	F.Data.DataTable.AddDisplayPartColumn("dtProj$dtWOs$dtMatl",0,"PART1","DISPLAY_PART1")
+	F.Data.DataView.Create("dtProj$dtWOs$dtMatl","dvMatl")
+	F.Data.DataTable.AddRelation("dtProj$dtWOs","JS","dtProj$dtWOs$dtMatl","JBSF","Material")
+
+	Gui.frmProj.GsGCProj.AddGridViewFromDataView("gvMatl","dtProj","dvMatl")
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","MultiSelect",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","OptionBehaviorEditable",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","ReadOnly",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","AllowSort",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","AllowFilter",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","OptionsDetailShowDetailTabs",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","OptionsViewShowGroupPanel",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","AllowColumnMoving",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvMatl","EnableAppearanceOddRow",True)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","JBSF","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","JSS","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","JOB1","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","SFX1","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PART1","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","ProjPhase","Visible",False)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","SEQ1","Caption","Seq ")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DISPLAY_PART1","Caption","Part ")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LOCATION1","Caption","Loc")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DESCR","Caption","Description")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","VENDOR","Caption","Vendor ")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PURCHASE_ORDER","Caption","PO")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LINE","Caption","PO Line")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DATE_DUE_LINE","Caption","Due Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","UNIT_COST","Caption","Unit Cost")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ESTIMATED","Caption","Est. Cost")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ACTUAL","Caption","Act. Cost")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSTOPROD","Caption","Qty. Req'd")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSCOMPL","Caption","Qty. Issued")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSREMAIN","Caption","Qty. Rem.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONHAND","Caption","On Hand")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_PO","Caption","On Order PO")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_WO","Caption","On Order WO")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_REQUIRED","Caption","Total Req'd")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","SEQ1","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DISPLAY_PART1","MinWidth","150")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LOCATION1","MinWidth","25")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DESCR","MinWidth","200")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","VENDOR","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PURCHASE_ORDER","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LINE","MinWidth","35")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DATE_DUE_LINE","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","UNIT_COST","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ESTIMATED","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ACTUAL","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSTOPROD","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSCOMPL","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSREMAIN","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONHAND","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_PO","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_WO","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_REQUIRED","MinWidth","75")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","SEQ1","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LOCATION1","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","VENDOR","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PURCHASE_ORDER","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LINE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DATE_DUE_LINE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","UNIT_COST","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ESTIMATED","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ACTUAL","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSTOPROD","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSCOMPL","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSREMAIN","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONHAND","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_PO","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_WO","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_REQUIRED","HeaderHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","SEQ1","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LOCATION1","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","VENDOR","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PURCHASE_ORDER","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LINE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DATE_DUE_LINE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","UNIT_COST","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ESTIMATED","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ACTUAL","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSTOPROD","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSCOMPL","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PCSREMAIN","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONHAND","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_PO","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_ONORDER_WO","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","QTY_REQUIRED","CellHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","SEQ1","Fixed","Left")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DISPLAY_PART1","CellForeColor","Blue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","LOCATION1","CellForeColor","Blue")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","PURCHASE_ORDER","CellForeColor","Blue")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","UNIT_COST","DisplayCustomNumeric","$#,###,###,##0.0000")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ESTIMATED","DisplayCustomNumeric","$#,###,###,##0.0000")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DOLLARS_ACTUAL","DisplayCustomNumeric","$#,###,###,##0.0000")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DATE_DUE_LINE","DisplayCustomDatetime","d")
+	
+	F.Intrinsic.Control.If(V.Global.bLongPart)
+		Gui.frmProj.GsGCProj.SetColumnProperty("gvMatl","DISPLAY_PART1","MinWidth","250")
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDTDVGVMatl.End
+
+Program.Sub.LoadDTDVGVLbr.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iRet.Declare
+	V.Local.iCnt.Declare
+	V.Local.sSQL.Declare
+
+	'F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(A.JOB,A.SUFFIX) AS JBSF,CONCAT(CONCAT(A.JOB,A.SUFFIX),A.SEQ) AS JSS,A.JOB,A.SUFFIX,A.SEQ,B.SEQRES,B.DESCR,B.STARTDATE,B.DUEDATE,B.COMPLDATE,A.CODE_SORT_OPER,B.OVERLAP,B.NOMACH,B.FLOAT,B.HOURSORIG AS EST_HRS,B.HOURSAPPL AS ACT_HRS,B.HOURSREM AS REM_HRS,B.PCSTOPROD AS ORDER_QTY,B.PCSCOMPL AS COMPL_QTY,B.PCSREMAIN AS PCS_REM,C.Project+C.Phase As ProjPhase FROM JOB_OPERATIONS A LEFT JOIN APSV3_JBLINES B ON JSS = B.JSS LEFT JOIN JOB_HEADER C ON A.JOB = C.JOB AND A.SUFFIX = C.SUFFIX WHERE A.LMO = 'L' AND A.SEQ NOT IN ('996000','998500') AND ProjPhase IN ({0}) ORDER BY A.JOB,A.SUFFIX,A.SEQ;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(A.JOB,A.SUFFIX) AS JBSF,CONCAT(CONCAT(A.JOB,A.SUFFIX),A.SEQ) AS JSS,A.JOB,A.SUFFIX,A.SEQ,A.PART AS SEQRES,A.DESCRIPTION AS DESCR,A.DATE_START AS STARTDATE,A.DATE_DUE AS DUEDATE,A.DATE_COMPLETED AS COMPLDATE,A.CODE_SORT_OPER,A.OVERLAP,A.FACTOR_WORKCENTER AS NOMACH,D.POST_FLOAT AS FLOAT,A.HOURS_ESTIMATED AS EST_HRS,A.HOURS_ACTUAL AS ACT_HRS,IF(A.DATE_COMPLETED = '1900-01-01',A.HOURS_ESTIMATED - A.HOURS_ACTUAL,0) AS REM_HRS,A.UNITS_OPEN AS ORDER_QTY,A.UNITS_COMPLETE AS COMPL_QTY,IF(A.UNITS_COMPLETE > A.UNITS_OPEN,0,A.UNITS_OPEN - A.UNITS_COMPLETE) AS PCS_REM,C.Project+C.Phase As ProjPhase FROM V_JOB_OPERATIONS A LEFT JOIN JOB_HEADER C ON A.JOB = C.JOB AND A.SUFFIX = C.SUFFIX LEFT JOIN SCHED_WO_SUPP D ON A.JOB = D.WO AND A.SUFFIX = D.WO_SUFFIX AND A.SEQ = D.WO_SEQ WHERE A.LMO = 'L' AND A.SEQ NOT IN ('996000','998500') AND ProjPhase IN ({0}) ORDER BY A.JOB,A.SUFFIX,A.SEQ;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtProj$dtWOs$dtLbr","con",V.Local.sSQL,True)
+	F.Data.DataView.Create("dtProj$dtWOs$dtLbr","dvLbr")
+	F.Data.DataTable.AddRelation("dtProj$dtWOs","JS","dtProj$dtWOs$dtLbr","JBSF","Labor")
+
+	Gui.frmProj.GsGCProj.AddGridViewFromDataView("gvLbr","dtProj","dvLbr")
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","MultiSelect",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","OptionBehaviorEditable",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","ReadOnly",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","AllowSort",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","AllowFilter",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","OptionsDetailShowDetailTabs",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","OptionsViewShowGroupPanel",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","AllowColumnMoving",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvLbr","EnableAppearanceOddRow",True)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","JBSF","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","JSS","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","JOB","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SUFFIX","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ProjPhase","Visible",False)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","OVERLAP","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","NOMACH","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","FLOAT","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","EST_HRS","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ACT_HRS","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","REM_HRS","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ORDER_QTY","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPL_QTY","DisplayCustomNumeric","#,###,###,##0.00")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","PCS_REM","DisplayCustomNumeric","#,###,###,##0.00")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQ","Caption","Seq ")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQRES","Caption","WC")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DESCR","Caption","Description")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","STARTDATE","Caption","Start Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DUEDATE","Caption","Due Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPLDATE","Caption","Compl. Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","CODE_SORT_OPER","Caption","Sort Code")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","OVERLAP","Caption","Overlap")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","NOMACH","Caption","WC Factor")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","FLOAT","Caption","Float")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","EST_HRS","Caption","Est. Hrs.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ACT_HRS","Caption","Act. Hrs.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","REM_HRS","Caption","Rem. Hrs.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ORDER_QTY","Caption","Order Qty.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPL_QTY","Caption","Comp. Qty.")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","PCS_REM","Caption","Rem. Qty.")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQ","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQRES","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DESCR","MinWidth","200")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","STARTDATE","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DUEDATE","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPLDATE","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","CODE_SORT_OPER","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","OVERLAP","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","NOMACH","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","FLOAT","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","EST_HRS","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ACT_HRS","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","REM_HRS","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ORDER_QTY","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPL_QTY","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","PCS_REM","MinWidth","75")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQ","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","STARTDATE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DUEDATE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPLDATE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","OVERLAP","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","NOMACH","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","FLOAT","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","EST_HRS","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ACT_HRS","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","REM_HRS","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ORDER_QTY","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPL_QTY","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","PCS_REM","HeaderHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQ","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","STARTDATE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DUEDATE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPLDATE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","OVERLAP","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","NOMACH","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","FLOAT","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","EST_HRS","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ACT_HRS","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","REM_HRS","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","ORDER_QTY","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPL_QTY","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","PCS_REM","CellHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQ","Fixed","Left")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","SEQRES","CellTrimming","Character")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","STARTDATE","DisplayCustomDatetime","d")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","DUEDATE","DisplayCustomDatetime","d")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvLbr","COMPLDATE","DisplayCustomDatetime","d")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDTDVGVLbr.End
+
+Program.Sub.LoadDTDVGVOut.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.iRet.Declare
+	V.Local.iCnt.Declare
+	V.Local.sSQL.Declare
+
+	'F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(A.JOB,A.SUFFIX) AS JBSF,CONCAT(CONCAT(A.JOB,A.SUFFIX),A.SEQ) AS JSS,A.JOB,A.SUFFIX,A.SEQ,C.NAME_VENDOR,B.DESCR,B.STARTDATE,B.DUEDATE,B.COMPLDATE,D.Project+D.Phase As ProjPhase FROM JOB_OPERATIONS A LEFT JOIN APSV3_JBLINES B ON JSS = B.JSS LEFT JOIN V_VENDOR_MASTER C ON B.OPCODE = C.VENDOR LEFT JOIN JOB_HEADER D ON A.JOB = D.JOB AND A.SUFFIX = D.SUFFIX WHERE A.LMO = 'O' AND A.SEQ <> '997000' AND ProjPhase IN ({0}) ORDER BY A.JOB,A.SUFFIX,A.SEQ;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Intrinsic.String.Build("SELECT DISTINCT CONCAT(A.JOB,A.SUFFIX) AS JBSF,CONCAT(CONCAT(A.JOB,A.SUFFIX),A.SEQ) AS JSS,A.JOB,A.SUFFIX,A.SEQ,C.NAME_VENDOR,A.DESCRIPTION AS DESCR,A.DATE_START AS STARTDATE,A.DATE_DUE AS DUEDATE,A.DATE_COMPLETED AS COMPLDATE,D.Project+D.Phase As ProjPhase FROM V_JOB_OPERATIONS A LEFT JOIN V_VENDOR_MASTER C ON A.OPERATION = C.VENDOR LEFT JOIN JOB_HEADER D ON A.JOB = D.JOB AND A.SUFFIX = D.SUFFIX WHERE A.LMO = 'O' AND A.SEQ <> '997000' AND ProjPhase IN ({0}) ORDER BY A.JOB,A.SUFFIX,A.SEQ;",V.Global.sProjPhase,V.Local.sSQL)
+	F.Data.DataTable.CreateFromSQL("dtProj$dtWOs$dtOut","con",V.Local.sSQL,True)
+	F.Data.DataView.Create("dtProj$dtWOs$dtOut","dvOut")
+	F.Data.DataTable.AddRelation("dtProj$dtWOs","JS","dtProj$dtWOs$dtOut","JBSF","Outside")
+
+	Gui.frmProj.GsGCProj.AddGridViewFromDataView("gvOut","dtProj","dvOut")
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","MultiSelect",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","OptionBehaviorEditable",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","ReadOnly",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","AllowSort",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","AllowFilter",True)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","OptionsDetailShowDetailTabs",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","OptionsViewShowGroupPanel",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","AllowColumnMoving",False)
+	Gui.frmProj.GsGCProj.SetGridViewProperty("gvOut","EnableAppearanceOddRow",True)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","JBSF","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","JSS","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","JOB","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","SUFFIX","Visible",False)
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","ProjPhase","Visible",False)
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","SEQ","Caption","Seq ")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","NAME_VENDOR","Caption","Vend. Name")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DESCR","Caption","Description")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","STARTDATE","Caption","Start Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DUEDATE","Caption","Due Date")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","COMPLDATE","Caption","Comp. Date")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","SEQ","MinWidth","75")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","NAME_VENDOR","MinWidth","175")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DESCR","MinWidth","200")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","STARTDATE","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DUEDATE","MinWidth","100")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","COMPLDATE","MinWidth","100")	
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","SEQ","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","STARTDATE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DUEDATE","HeaderHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","COMPLDATE","HeaderHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","SEQ","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","STARTDATE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DUEDATE","CellHAlignment","Center")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","COMPLDATE","CellHAlignment","Center")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","SEQ","Fixed","Left")
+
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","STARTDATE","DisplayCustomDatetime","d")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","DUEDATE","DisplayCustomDatetime","d")
+	Gui.frmProj.GsGCProj.SetColumnProperty("gvOut","COMPLDATE","DisplayCustomDatetime","d")
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.LoadDTDVGVOut.End
+
+Program.Sub.GsGCProj_RowCellClick.Start
+	F.Intrinsic.Control.Try
+	V.Local.sError.Declare
+	
+	V.Local.sParams.Declare
+	V.Local.sJob.Declare
+	V.Local.sSuffix.Declare
+	V.Local.sPart.Declare
+	V.Local.sLoc.Declare
+	V.Local.sPO.Declare
+	V.Local.sSO.Declare
+	V.Local.sOrderNo.Declare
+	V.Local.sOrderLine.Declare
+	
+	F.Intrinsic.Control.SelectCase(V.Args.Column)
+		F.Intrinsic.Control.CaseAny("JOB","SUFFIX")
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvWOs","JOB",V.Args.RowIndex,V.Local.sJob)
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvWOs","SUFFIX",V.Args.RowIndex,V.Local.sSuffix)
+			F.Intrinsic.Control.If(V.Screen.frmProj!optView.Value)
+				F.Intrinsic.String.Build("7!*!{0}!*!{1}!*!A",V.Local.sJob,V.Local.sSuffix,V.Local.sParams)
+				F.Global.General.CallWrapperAsync(450000,V.Local.sParams)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sJob,V.Local.sSuffix,V.Local.sParams)
+				F.Global.General.CallWrapperAsync(2009,V.Local.sParams)
+			F.Intrinsic.Control.EndIf
+			
+		F.Intrinsic.Control.CaseAny("DISPLAY_PART","LOCATION")
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvWOs","PART",V.Args.RowIndex,V.Local.sPart)
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvWOs","LOCATION",V.Args.RowIndex,V.Local.sLoc)
+			F.Intrinsic.Control.If(V.Screen.frmProj!optView.Value)
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sPart,V.Local.sLoc,V.Local.sParams)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}!*!{1}!*!M",V.Local.sPart,V.Local.sLoc,V.Local.sParams)
+			F.Intrinsic.Control.EndIf
+			F.Global.General.CallWrapperAsync(300011,V.Local.sParams)
+			
+		F.Intrinsic.Control.Case("SALESORDER")
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvWOs","SALESORDER",V.Args.RowIndex,V.Local.sSO)
+			F.Intrinsic.Control.If(V.Local.sSO,<>,"")
+				F.Intrinsic.String.Split(V.Local.sSO,"-",V.Local.sSO)
+				V.Local.sOrderNo.Set(V.Local.sSO(0))
+				V.Local.sOrderLine.Set(V.Local.sSO(1))
+				F.Intrinsic.Control.If(V.Screen.frmProj!optView.Value)
+					F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sOrderNo,"O","*!*ZDR*!*",V.Local.sParams)
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.ConcatCallWrapperArgs(V.Local.sOrderNo,"V","*!*ZDR*!*",V.Local.sParams)
+				F.Intrinsic.Control.EndIf
+				F.Global.General.CallWrapperSync(200000,V.Local.sParams)
+			F.Intrinsic.Control.EndIf
+
+		F.Intrinsic.Control.CaseAny("DISPLAY_PART1","LOCATION1")
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvMatl","PART1",V.Args.RowIndex,V.Local.sPart)
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvMatl","LOCATION1",V.Args.RowIndex,V.Local.sLoc)
+			F.Intrinsic.Control.If(V.Screen.frmProj!optView.Value)
+				F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sPart,V.Local.sLoc,V.Local.sParams)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("{0}!*!{1}!*!M",V.Local.sPart,V.Local.sLoc,V.Local.sParams)
+			F.Intrinsic.Control.EndIf
+			F.Global.General.CallWrapperAsync(300011,V.Local.sParams)
+			
+		F.Intrinsic.Control.Case("PURCHASE_ORDER")
+			Gui.frmProj.GsGCProj.GetCellValueByColumnName("gvMatl","PURCHASE_ORDER",V.Args.RowIndex,V.Local.sPO)
+			F.Intrinsic.Control.If(V.Screen.frmProj!optView.Value)
+				F.Intrinsic.String.Build("V!*!{0}!*!",V.Local.sPO,V.Local.sParams)
+			F.Intrinsic.Control.Else
+				F.Intrinsic.String.Build("O!*!{0}!*!",V.Local.sPO,V.Local.sParams)
+			F.Intrinsic.Control.EndIf
+			F.Global.General.CallWrapperAsync(175200,V.Local.sParams)
+	F.Intrinsic.Control.EndSelect
+
+	F.Intrinsic.Control.Catch
+		F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error Occurred {3} with description {4}{1}{1}GAB Version: {5}",V.Ambient.ScriptPath,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Local.sError)
+		F.Intrinsic.UI.Msgbox(V.Local.sError)
+		F.Intrinsic.Control.End 
+	F.Intrinsic.Control.EndTry
+Program.Sub.GsGCProj_RowCellClick.End
